@@ -7,6 +7,8 @@ module pl.pzwebdev.listconverter {
     requires org.kordamp.bootstrapfx.core;
 
     opens pl.pzwebdev.listconverter to javafx.fxml;
+    opens pl.pzwebdev.listconverter.controller to javafx.fxml;
 
     exports pl.pzwebdev.listconverter;
+    exports pl.pzwebdev.listconverter.controller;
 }

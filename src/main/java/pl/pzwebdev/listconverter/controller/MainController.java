@@ -1,4 +1,4 @@
-package pl.pzwebdev.listconverter;
+package pl.pzwebdev.listconverter.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
