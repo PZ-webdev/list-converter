@@ -1,14 +1,16 @@
 package pl.pzwebdev.listconverter.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 public class MainController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public Button convertButton;
+
+    @FXML
+    public void convertAction(ActionEvent actionEvent) {
+
     }
 }
