@@ -3,6 +3,9 @@ package pl.pzwebdev.listconverter.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import pl.pzwebdev.listconverter.common.CodingConverter;
+
+import java.io.*;
 
 public class MainController {
 
@@ -11,6 +14,9 @@ public class MainController {
 
     @FXML
     public void convertAction(ActionEvent actionEvent) {
+        String sciezkaWejscia = "file/LKON_S01.TXT";
+        String sciezkaWyjscia = "file/LKON_S01_Coonverted.TXT";
 
+        CodingConverter.convertToUTF8(sciezkaWejscia, sciezkaWyjscia);
     }
 }
