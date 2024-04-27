@@ -1,6 +1,10 @@
 package pl.pzwebdev.listconverter.common;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+
+import org.apache.pdfbox.pdmodel.*;
+import org.apache.pdfbox.pdmodel.font.*;
 
 public class CodingConverter {
 
@@ -28,4 +32,63 @@ public class CodingConverter {
             System.out.println("Wystąpił błąd podczas konwersji pliku: " + e.getMessage());
         }
     }
+
+    public static void convertToPDF(String sciezkaWejscia, String sciezkaWyjscia) {
+        try {
+            PDDocument document = new PDDocument();
+            PDPage page = new PDPage();
+            document.addPage(page);
+
+            PDPageContentStream contentStream = new PDPageContentStream(document, page);
+            PDFont font = PDType0Font.load(document, new File("Consolas.ttf"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(sciezkaWejscia), StandardCharsets.UTF_8));
+
+            String line;
+            float currentYPosition = 770;
+            boolean startNewPage = false;
+            while ((line = reader.readLine()) != null) {
+                line = line.replaceAll("\u001B", "");
+                line = replaceSpecialCharacters(line);
+
+                if (line.contains("\f")) {
+                    startNewPage = true;
+                }
+
+                String[] lines = line.split("\\f");
+                for (String l : lines) {
+                    if (startNewPage) {
+                        contentStream.close();
+                        page = new PDPage();
+                        document.addPage(page);
+                        contentStream = new PDPageContentStream(document, page);
+                        currentYPosition = page.getMediaBox().getHeight() - 10;
+                        startNewPage = false;
+                    }
+
+                    contentStream.beginText();
+                    contentStream.setFont(font, 9);
+                    contentStream.newLineAtOffset(5, currentYPosition);
+                    contentStream.showText(l);
+                    contentStream.endText();
+                    currentYPosition -= 10;
+                }
+            }
+
+            contentStream.close();
+            document.save(sciezkaWyjscia);
+            document.close();
+
+            System.out.println("Plik przekonwertowany na PDF.");
+        } catch (IOException e) {
+            System.out.println("Wystąpił błąd podczas konwersji pliku: " + e.getMessage());
+        }
+    }
+
+    private static String replaceSpecialCharacters(String line) {
+        line = line.replace("\u000F", "");  // U+000F () -> usunięcie
+        line = line.replace("\u0012", "");  // U+0012 () -> usunięcie
+
+        return line;
+    }
+
 }
