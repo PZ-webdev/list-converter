@@ -6,6 +6,7 @@ module pl.pzwebdev.listconverter {
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
     requires org.apache.pdfbox;
+    requires java.prefs;
 
     opens pl.pzwebdev.listconverter to javafx.fxml;
     opens pl.pzwebdev.listconverter.controller to javafx.fxml;

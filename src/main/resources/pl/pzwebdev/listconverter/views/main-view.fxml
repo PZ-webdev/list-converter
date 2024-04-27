@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pzwebdev.listconverter.controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0"
+            prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pl.pzwebdev.listconverter.controller.MainController">
     <children>
-        <Button fx:id="convertButton" layoutX="489.0" layoutY="124.0" mnemonicParsing="false" onAction="#convertAction" prefHeight="36.0" prefWidth="102.0" text="Konwertuj" textAlignment="CENTER" />
-      <MenuBar layoutY="1.0" prefHeight="27.0" prefWidth="1080.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+        <Button fx:id="convertButton" layoutX="34.0" layoutY="247.0" mnemonicParsing="false" onAction="#convertAction"
+                prefHeight="36.0" prefWidth="301.0" text="Konwertuj" textAlignment="CENTER"/>
+        <TextField layoutX="34.0" layoutY="100.0" prefHeight="24.0" prefWidth="301.0" fx:id="txtPath"/>
+        <TextField layoutX="34.0" layoutY="171.0" prefHeight="24.0" prefWidth="301.0" fx:id="pdfPath"/>
+        <Text layoutX="34.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER"
+              wrappingWidth="301.0"
+              fx:id="messageText"/>
+        <Text fill="WHITE" layoutX="34.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Generator list z txt do PDF" textAlignment="CENTER" wrappingWidth="300.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Text>
+        <Label layoutX="34.0" layoutY="76.0" prefHeight="24.0" prefWidth="301.0"
+               text="Ścieżka do katalogu z plikami tekstowymi" textFill="WHITE" fx:id="directoryTxtFiles"/>
+        <Label layoutX="34.0" layoutY="147.0" prefHeight="24.0" prefWidth="301.0"
+               text="Ścieżka do katalogu, gdzie mają trafić PDF'y" textFill="WHITE" fx:id="directoryPdfFiles"/>
     </children>
 </AnchorPane>
