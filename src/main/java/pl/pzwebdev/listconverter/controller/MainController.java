@@ -54,8 +54,13 @@ public class MainController implements Initializable {
 
                 // Convert to PDF
                 CodingConverter.convertToPDF(convertedFile, pdfFilename);
-                displaySuccessMessage("Plik PDF został pomyślnie utworzony.");
+
+                // Remove converted file.
+                File convertedFileToDelete = new File(convertedFile);
+                convertedFileToDelete.delete();
             }
+
+            displaySuccessMessage("Plik PDF został pomyślnie utworzony.");
         } catch (FileNotFoundException e) {
             displayErrorMessage(e.getMessage());
         } catch (Exception e) {
