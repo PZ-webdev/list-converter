@@ -7,26 +7,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0"
-            prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pl.pzwebdev.listconverter.controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pzwebdev.listconverter.controller.MainController">
     <children>
-        <Button fx:id="convertButton" layoutX="34.0" layoutY="247.0" mnemonicParsing="false" onAction="#convertAction"
-                prefHeight="36.0" prefWidth="301.0" text="Konwertuj" textAlignment="CENTER"/>
-        <TextField layoutX="34.0" layoutY="100.0" prefHeight="24.0" prefWidth="301.0" fx:id="txtPath"/>
-        <TextField layoutX="34.0" layoutY="171.0" prefHeight="24.0" prefWidth="301.0" fx:id="pdfPath"/>
-        <Text layoutX="34.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER"
-              wrappingWidth="301.0"
-              fx:id="messageText"/>
-        <Text fill="WHITE" layoutX="34.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Generator list z txt do PDF" textAlignment="CENTER" wrappingWidth="300.0">
+        <Button fx:id="convertButton" layoutX="34.0" layoutY="220.0" mnemonicParsing="false" onAction="#convertAction" prefHeight="31.0" prefWidth="301.0" text="Konwertuj" textAlignment="CENTER" />
+        <TextField fx:id="txtPath" layoutX="34.0" layoutY="100.0" prefHeight="24.0" prefWidth="301.0" />
+        <TextField fx:id="pdfPath" layoutX="34.0" layoutY="171.0" prefHeight="24.0" prefWidth="301.0" />
+
+        <Label fx:id="messageText" contentDisplay="CENTER" layoutX="34.0" layoutY="268.0" prefHeight="64.0" prefWidth="300.0" style="-fx-text-fill: red;" textAlignment="CENTER" textOverrun="CLIP" visible="false" />
+
+        <Text fill="WHITE" layoutX="34.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generator list z txt do PDF" textAlignment="CENTER" wrappingWidth="300.0">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Text>
-        <Label layoutX="34.0" layoutY="76.0" prefHeight="24.0" prefWidth="301.0"
-               text="Ścieżka do katalogu z plikami tekstowymi" textFill="WHITE" fx:id="directoryTxtFiles"/>
-        <Label layoutX="34.0" layoutY="147.0" prefHeight="24.0" prefWidth="301.0"
-               text="Ścieżka do katalogu, gdzie mają trafić PDF'y" textFill="WHITE" fx:id="directoryPdfFiles"/>
+        <Label fx:id="directoryTxtFiles" layoutX="34.0" layoutY="76.0" prefHeight="24.0" prefWidth="301.0" text="Ścieżka do katalogu z plikami tekstowymi" textFill="WHITE" />
+        <Label fx:id="directoryPdfFiles" layoutX="34.0" layoutY="147.0" prefHeight="24.0" prefWidth="301.0" text="Ścieżka do katalogu, gdzie mają trafić PDF'y" textFill="WHITE" />
     </children>
 </AnchorPane>

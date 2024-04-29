@@ -11,7 +11,7 @@ public class CodingConverter {
     private static final String UTF_8 = "UTF-8";
     private static final String CP852 = "CP852";
 
-    public static boolean convertToUTF8(String input, String output) {
+    public static void convertToUTF8(String input, String output) {
         try {
             FileInputStream fileInputStream = new FileInputStream(input);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, CP852);
@@ -28,14 +28,12 @@ public class CodingConverter {
             outputStreamWriter.close();
 
             System.out.println("Plik przekonwertowany na " + UTF_8 + ".");
-            return true;
         } catch (IOException e) {
             System.out.println("Wystąpił błąd podczas konwersji pliku: " + e.getMessage());
-            return false;
         }
     }
 
-    public static boolean convertToPDF(String sciezkaWejscia, String sciezkaWyjscia) {
+    public static void convertToPDF(String input, String output) {
         try {
             PDDocument document = new PDDocument();
             PDPage page = new PDPage();
@@ -43,7 +41,7 @@ public class CodingConverter {
 
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
             PDFont font = PDType0Font.load(document, new File("Consolas.ttf"));
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(sciezkaWejscia), StandardCharsets.UTF_8));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(input), StandardCharsets.UTF_8));
 
             String line;
             float currentYPosition = 770;
@@ -77,14 +75,12 @@ public class CodingConverter {
             }
 
             contentStream.close();
-            document.save(sciezkaWyjscia);
+            document.save(output);
             document.close();
 
             System.out.println("Plik przekonwertowany na PDF.");
-            return true;
         } catch (IOException e) {
             System.out.println("Wystąpił błąd podczas konwersji pliku: " + e.getMessage());
-            return false;
         }
     }
 
