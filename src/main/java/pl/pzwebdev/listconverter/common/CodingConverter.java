@@ -48,6 +48,7 @@ public class CodingConverter {
             boolean startNewPage = false;
             boolean isFirstPage = true;
             boolean isTitle = false;
+            boolean bestFiveBreeder = false;
 
             while ((line = reader.readLine()) != null) {
                 line = line.replaceAll("\u001B", "");
@@ -66,8 +67,7 @@ public class CodingConverter {
                 }
 
                 if (line.contains("NAJLEPSZA PIĄTKA HODOWCÓW (PKT-1) Z LOTU")) {
-                    System.out.println("NAJLEPSZA PIĄTKA HODOWCÓW (PKT-1) Z LOTU");
-                    isFirstPage = true;
+                    bestFiveBreeder = true;
                 }
 
                 if (line.contains("GW1")) {
@@ -87,6 +87,11 @@ public class CodingConverter {
                     int fontSize = 9;
 
                     if (isFirstPage) {
+                        marginLeft = 40;
+                        fontSize = 11;
+                    }
+
+                    if (bestFiveBreeder) {
                         marginLeft = 40;
                         fontSize = 11;
                     }
