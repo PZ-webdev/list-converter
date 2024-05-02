@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'pl.pz-webdev'
-version '0.0.0'
+version '0.2.0'
 
 repositories {
     mavenCentral()
@@ -28,7 +28,7 @@ tasks.withType(JavaCompile).configureEach {
 
 application {
     mainModule = 'pl.pzwebdev.listconverter'
-    mainClass = 'pl.pzwebdev.listconverter.HelloApplication'
+    mainClass = 'pl.pzwebdev.listconverter.LCApplication'
 }
 
 javafx {
@@ -60,13 +60,22 @@ test {
 }
 
 jlink {
-    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
-    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
-        name = 'app'
+        name = 'List Converter'
+    }
+
+    jpackage {
+        installerOutputDir = file("$buildDir/installers")
+        installerType = 'exe'
+        installerOptions = [
+                '--vendor', 'PZ-webdev',
+                '--win-menu',
+                '--win-shortcut',
+                '--win-per-user-install'
+        ]
     }
 }
 
 jlinkZip {
-    group = 'distribution'
+    //
 }
