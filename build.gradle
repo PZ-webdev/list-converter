@@ -42,7 +42,16 @@ dependencies {
     dependencies {
         implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.25'
     }
+    compileOnly("org.projectlombok:lombok:1.18.30")
 
+    implementation("javax.persistence:javax.persistence-api:2.2")
+
+    // Hibernate ORM
+    implementation('org.hibernate:hibernate-core:6.5.0.Final')
+
+    // SQLite JDBC Driver
+    implementation('org.xerial:sqlite-jdbc:3.36.0.3')
+    implementation("com.github.gwenn:sqlite-dialect:0.1.4")
 
     implementation('com.dlsc.formsfx:formsfx-core:11.6.0') {
         exclude(group: 'org.openjfx')
@@ -50,6 +59,10 @@ dependencies {
     implementation('net.synedra:validatorfx:0.4.0') {
         exclude(group: 'org.openjfx')
     }
+
+    //implementation 'org.jboss.logging:jboss-logging:3.5.2.Final'
+    //implementation 'jakarta.enterprise:jakarta.enterprise.cdi-api:4.0.1'
+    // implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.0'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
