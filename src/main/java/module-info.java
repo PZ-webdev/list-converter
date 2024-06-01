@@ -7,6 +7,7 @@ module pl.pzwebdev.listconverter {
     requires org.kordamp.bootstrapfx.core;
     requires org.apache.pdfbox;
     requires java.prefs;
+    requires java.sql;
 
     opens pl.pzwebdev.listconverter to javafx.fxml;
     opens pl.pzwebdev.listconverter.controller to javafx.fxml;
